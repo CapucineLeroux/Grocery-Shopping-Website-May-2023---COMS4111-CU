@@ -17,9 +17,9 @@ Capucine Leroux cpl2146@columbia.edu
 
 ### Content
 
-database_creation.ipynb: Jupyter notebook that was used to create the original database.
-fast_food_database.db: Original database.
-server.py: Script used to launch the website.
+database_creation.ipynb: Jupyter notebook that was used to create the original database.  
+fast_food_database.db: Original database.  
+server.py: Script used to launch the website.  
 templates: All auxiliary scripts used to create each different page of the website.  
 demo.mov: Very quick movie demo of what the website looks like. Does not include all pages and options.   
 

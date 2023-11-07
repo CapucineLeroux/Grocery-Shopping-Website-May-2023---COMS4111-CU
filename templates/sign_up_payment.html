@@ -1,0 +1,32 @@
+<html>
+
+<style>
+    /* Define a class for red asterisk */
+    .red-asterisk {
+        color: red;
+    }
+</style>
+
+<body bgcolor="lightgreen">
+    <h1 style="text-align:center; color:rgb(255, 255, 255); font-size: 96px; background-color: rgb(29, 87, 27)">Fast Food</h1>
+    <h2 style="text-align:center">Payment Information</h2>
+
+	<div style="text-align: center;">
+		<form method="POST" action="/submit_payment" style="text-align:center">
+			<p>First Name<span class="red-asterisk">*</span>: <input type="text" name="first_name" required></p>
+			<p>Last Name<span class="red-asterisk">*</span>: <input type="text" name="last_name" required></p>
+			<p>Card Number<span class="red-asterisk">*</span>: <input type="tel" name="card_number" pattern="\d{16}" required></p>
+			<p>Expiration Date (Format YYYY/MM/DD)<span class="red-asterisk">*</span>: <input type="date" name="expiration_date" required></p>
+			<p>CVV<span class="red-asterisk">*</span>: <input type="tel" name="cvv" pattern="\d{3}" required></p>
+			<p>Zip Code<span class="red-asterisk">*</span>: <input type="tel" name="zip_code" pattern="\d{5}" required></p>
+			<p><input type="submit" value="Next"></p>
+		</form>
+		<a href="sign_up_confirmation">
+			<button style="background-color: rgb(29, 87, 27); color: white; padding: 10px 20px; border: none; border-radius: 5px;">Skip for now</button>
+		</a>
+	</div>
+
+</body>
+
+
+</html>

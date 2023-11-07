@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <style>
+        .shopping-cart-link {
+            position: absolute;
+            top: 185px;
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body bgcolor="lightgreen">
+    <h1 style="text-align:center; color:rgb(255, 255, 255); font-size: 96px; background-color: rgb(29, 87, 27)">Fast Food</h1>
+    <h2 style="text-align:center; font-size: 56px">Reviews</h2>
+    <div style="text-align: center;">
+        <h2 style="text-align:center">Submit New Review</h2>
+        <form method="POST" action="/submit_review" style="text-align:center">
+			<p>Rating (1-5)<span class="red-asterisk">*</span>: <input type="text" name="rating" required></p>
+			<p>Review<span class="red-asterisk">*</span>: <input type="text" name="review" required></p>
+			<p><input type="submit" value="Submit"></p>
+		</form>
+    </div>
+
+    {% for rev in store_reviews %}
+        <div style="border:1px solid black; padding:10px; margin:10px;display:flex; justify-content:center; flex-direction: column;"></div>
+            <p>First Name: {{ rev['first_name'] }}</p>
+            <p>Last Name: {{ rev['last_name'] }}</p>
+            <p>Rating: {{ rev['rating'] }}</p>
+            <p>Review: {{ rev['review'] }}</p>
+        </div>
+    {% endfor %}
+    
+	
+</body>
+
+
+</html>

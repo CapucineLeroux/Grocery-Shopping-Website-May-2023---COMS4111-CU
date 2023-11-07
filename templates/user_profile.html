@@ -1,0 +1,83 @@
+<html>
+
+
+<body bgcolor="lightgreen">
+    <h1 style="text-align:center; color:rgb(255, 255, 255); font-size: 96px; background-color: rgb(29, 87, 27)">Fast Food</h1>
+    <h2 style="text-align:center">User Information</h2>
+
+    <a href="grocery_stores">
+        <button style="background-color: rgb(29, 87, 27); color: white; padding: 10px 20px; border: none; border-radius: 5px;">Back to stores</button>
+    </a>
+
+	<div style="display:flex; justify-content:center; flex-direction: column; text-align:center;">
+        <p>First Name: {{ user_information['first_name'] }}</p>
+        <p>Last Name: {{ user_information['last_name'] }}</p>
+        <p>Username: {{ user_information['username'] }}</p>
+        <p>Password: {{ user_information['password'] }}</p>
+        <p>Phone: {{ user_information['phone'] }}</p>
+        <p>Email: {{ user_information['email'] }}</p>
+    </div>
+
+    <h3 style="text-align:center">Addresses</h3>
+    {% for address in user_information['addresses'] %}
+			<div style="border:1px solid black; padding:10px; margin:10px;">
+				<p>First Name: {{ address['first_name'] }}</p>
+                <p>Last Name: {{ address['last_name'] }}</p>
+                <p>Street Name and No: {{ address['street_info'] }}</p>
+                <p>City: {{ address['city'] }}</p>
+                <p>Country: {{ address['country'] }}</p>
+                <p>Zip Code: {{ address['zip'] }}</p>
+		  	</div>
+            <form action="/delete_address" method="POST">
+                <input type="hidden" name="address_id" value="{{ address['addresses_id'] }}">
+                <button type="submit">Delete</button>
+            </form>
+		{% endfor %}
+    <div style="display:flex; justify-content:center; align-items: center">
+        <a href="/edit_address">
+            <button style="background-color: rgb(29, 87, 27); color: white; padding: 10px 20px; border: none; border-radius: 5px;">Add</button>
+        </a>
+    </div>
+    <h4 style="text-align:center">Payment Methods</h4>
+    {% for payment in user_information['payments'] %}
+			<div style="border:1px solid black; padding:10px; margin:10px;">
+				<p>First Name: {{ payment['first_name'] }}</p>
+                <p>Last Name: {{ payment['last_name'] }}</p>
+                <p>Card Number: {{ payment['card_number'] }}</p>
+                <p>Expiration Date: {{ payment['exp'] }}</p>
+                <p>CVV: {{ payment['cvv'] }}</p>
+                <p>Zip Code: {{ payment['zip'] }}</p>
+		  	</div>
+              <form action="/delete_payment" method="POST">
+                <input type="hidden" name="payment_id" value="{{ payment['payment_id'] }}">
+                <button type="submit">Delete</button>
+            </form>
+		{% endfor %}
+    <div style="display:flex; justify-content:center; align-items: center">
+        <a href="/edit_payment">
+            <button style="background-color: rgb(29, 87, 27); color: white; padding: 10px 20px; border: none; border-radius: 5px;">Add</button>
+        </a>
+    </div>
+
+    <h4 style="text-align:center">Past Orders</h4>
+    {% for order in user_information['orders'] %}
+			<div style="border:1px solid black; padding:10px; margin:10px;">
+
+                <p>Order ID: {{ order['order_id'] }}</p>
+				<p>Order Date: {{ order['order_date'] }}</p>
+                <p>Arrival Date: {{ order['arrival_date'] }}</p>
+                <p>Total Price: {{ order['total_price'] }}</p>
+                <form action="/go_to_item" method="POST">
+                    <input type="hidden" name="order_id" value="{{ order['order_id'] }}">
+                    <button type="submit">More Information</button>
+                </form>
+            </div>
+            
+            
+		{% endfor %}
+
+
+</body>
+
+
+</html>

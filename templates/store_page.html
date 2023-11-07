@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <style>
+        .shopping-cart-link {
+            position: absolute;
+            top: 185px;
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body bgcolor="lightgreen">
+    <h1 style="text-align:center; color:rgb(255, 255, 255); font-size: 96px; background-color: rgb(29, 87, 27)">Fast Food</h1>
+    <h2 style="text-align:center">Grocery Stores</h2>
+
+    <a class="shopping-cart-link" href="/shopping_cart">See Shopping Cart</a>
+
+    <div style="display:flex; justify-content:center; flex-direction: column; text-align:center;">
+        <p style="font-weight:bold;">Name: {{ grocery_store['name'] }}</p>
+        <p>Address: {{ grocery_store['address'] }}</p>
+        <p>Phone: {{ grocery_store['phone'] }}</p>
+        <p>Email: {{ grocery_store['email'] }}</p>
+        <form action="/reviews" method="POST">
+            <input type="hidden" name="store_id" value="{{ grocery_store['store_id'] }}">
+            <button type="submit">Reviews</button>
+        </form>
+    </div>
+
+    <a href="grocery_stores">
+        <button style="background-color: rgb(29, 87, 27); color: white; padding: 10px 20px; border: none; border-radius: 5px;">Back to stores</button>
+    </a>
+    
+    {% for item in grocery_store['items'] %}
+        <div style="border:1px solid black; padding:10px; margin:10px;display:flex; justify-content:center; flex-direction: column;">
+            <p style="font-weight:bold;">{{ item['name'] }}</p>
+            <p>Price: {{ item['price_per_unit'] }} (per {{ item['measurement_unit'] }})</p>
+            <p>Quantity available: {{ item['available_quantity'] }}</p>
+            <form method="POST" action="/add_to_cart">
+                <p>Wanted Quantity: <input type="number" name="wanted_quantity" min="0" max="{{ item['available_quantity'] }}"></p>
+                <input type="hidden" name="item" value="{{item}}">
+                <p><input type="submit" value="Add to cart"></p>
+            </form>
+        </div>
+    {% endfor %}
+    
+	
+</body>
+
+
+</html>

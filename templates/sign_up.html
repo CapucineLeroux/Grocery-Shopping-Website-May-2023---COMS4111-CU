@@ -1,0 +1,27 @@
+<html>
+
+<style>
+    /* Define a class for red asterisk */
+    .red-asterisk {
+        color: red;
+    }
+</style>
+
+<body bgcolor="lightgreen">
+    <h1 style="text-align:center; color:rgb(255, 255, 255); font-size: 96px; background-color: rgb(29, 87, 27)">Fast Food</h1>
+    <h2 style="text-align:center">User Information</h2>
+
+	<form method="POST" action="/submit_user_info" style="text-align:center">
+		<p>First Name<span class="red-asterisk">*</span>: <input type="text" name="first_name" required></p>
+		<p>Last Name<span class="red-asterisk">*</span>: <input type="text" name="last_name" required></p>
+		<p>Username<span class="red-asterisk">*</span>: <input type="text" name="username" required></p>
+		<p>Password<span class="red-asterisk">*</span>: <input type="text" name="password" required></p>
+		<p>Phone (10 digits): <input type="tel" name="phone" pattern="\d{10}"></p>
+		<p>Email: <input type="text" name="email"></p>
+		<p><input type="submit" value="Next"></p>
+	</form>
+
+</body>
+
+
+</html>

@@ -1,0 +1,29 @@
+<html>
+
+
+<body bgcolor="lightgreen">
+    <h1 style="text-align:center; color:rgb(255, 255, 255); font-size: 96px; background-color: rgb(29, 87, 27)">Fast Food</h1>
+    <h2 style="text-align:center">Items Ordered</h2>
+
+
+    {% for it in items %}
+			<div style="border:1px solid black; padding:10px; margin:10px;">
+
+                <p>Name: {{ it['name'] }}</p>
+				<p>Unit Price: {{ it['price'] }}</p>
+                <p>Measurement Unit: {{ it['ms_unit'] }}</p>
+                <p>Quantity Ordered: {{ it['quantity_ordered'] }}</p>
+                <p>Full Price: {{ it['full_price'] }}</p>
+            </div>
+		{% endfor %}
+    <div style="display:flex; justify-content:center; align-items: center">
+        <a href="/user_page">
+            <button style="background-color: rgb(29, 87, 27); color: white; padding: 10px 20px; border: none; border-radius: 5px;">Back</button>
+        </a>
+    </div>
+
+
+</body>
+
+
+</html>

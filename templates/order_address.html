@@ -1,0 +1,40 @@
+<html>
+
+<body bgcolor="lightgreen">
+    <h1 style="text-align:center; color:rgb(255, 255, 255); font-size: 96px; background-color: rgb(29, 87, 27)">Fast Food</h1>
+    <h2 style="text-align:center">Choose a Delivery Address</h2>
+
+	<h3 style="text-align:center"></h3>
+    {% for address in addresses %}
+		<div style="border:1px solid black; padding:10px; margin:10px;">
+			<p>First Name: {{ address['first_name'] }}</p>
+			<p>Last Name: {{ address['last_name'] }}</p>
+			<p>Street Name and No: {{ address['street_name_and_number'] }}</p>
+			<p>City: {{ address['city'] }}</p>
+			<p>Country: {{ address['country'] }}</p>
+			<p>Zip Code: {{ address['zip_code'] }}</p>
+			<form action="/confirm_order_address" method="POST">
+				<input type="hidden" name="address_id" value="{{ address['address_id'] }}">
+				<button type="submit">Choose this address</button>
+			</form>
+		</div>
+	{% endfor %}
+
+	<h4 style="text-align:center">Enter a new Delivery Address</h4>
+	<div style="text-align: center;">
+		<form method="POST" action="/submit_order_address" style="text-align:center">
+			<p>First Name<span class="red-asterisk">*</span>: <input type="text" name="first_name" required></p>
+			<p>Last Name<span class="red-asterisk">*</span>: <input type="text" name="last_name" required></p>
+			<p>Street Name and Number<span class="red-asterisk">*</span>: <input type="text" name="street_name_and_number" required></p>
+			<p>City<span class="red-asterisk">*</span>: <input type="text" name="city" required></p>
+			<p>Country<span class="red-asterisk">*</span>: <input type="text" name="country" required></p>
+			<p>Zip Code (5 digits)<span class="red-asterisk">*</span>: <input type="tel" name="zip_code" pattern="\d{5}" required></p>
+			<p><input type="submit" value="Choose this address"></p>
+		</form>
+	</div>
+	
+</body>
+
+
+
+</html>

@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <style>
+        .shopping-cart-link {
+            position: absolute;
+            top: 185px;
+            right: 10px;
+        }
+    </style>
+	<style>
+        .user-profile-link {
+            position: absolute;
+            top: 185px;
+            left: 10px;
+        }
+    </style>
+</head>
+
+
+<body bgcolor="lightgreen">
+    <h1 style="text-align:center; color:rgb(255, 255, 255); font-size: 96px; background-color: rgb(29, 87, 27)">Fast Food</h1>
+    <h2 style="text-align:center">Grocery Stores</h2>
+
+	<a class="shopping-cart-link" href="/shopping_cart">See Shopping Cart</a>
+	<a class="user-profile-link" href="/user_profile">See My Profile</a>
+    
+	<div style="display:flex; justify-content:center;">
+		{% for grocery_store in grocery_stores %}
+			<div style="border:1px solid black; padding:10px; margin:10px;">
+				<p style="font-weight:bold;">{{ grocery_store['name'] }}</p>
+				<p>{{ grocery_store['address'] }}</p>
+				<form action="/go_to_store" method="POST">
+					<input type="hidden" name="store_id" value="{{ grocery_store['store_id'] }}">
+					<input type="hidden" name="name" value="{{ grocery_store['name'] }}">
+					<input type="hidden" name="address" value="{{ grocery_store['address'] }}">
+					<button type="submit">Shop here</button>
+				</form>
+		  	</div>
+		{% endfor %}
+	</div>
+
+	<div style="display:flex; justify-content:center; align-items: center">
+		<a href="/logout">
+			<button style="background-color: rgb(29, 87, 27); color: white; padding: 10px 20px; border: none; border-radius: 5px;">Logout</button>
+		</a>
+	</div>
+ 
+<html>
+	
+</body>
+
+
+</html>

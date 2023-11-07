@@ -1,0 +1,30 @@
+<html>
+
+<style>
+    /* Define a class for red asterisk */
+    .red-asterisk {
+        color: red;
+    }
+</style>
+
+<body bgcolor="lightgreen">
+    <h1 style="text-align:center; color:rgb(255, 255, 255); font-size: 96px; background-color: rgb(29, 87, 27)">Fast Food</h1>
+    <h2 style="text-align:center">Add New Address</h2>
+
+	<div style="text-align: center;">
+		<form method="POST" action="/edit_addresses" style="text-align:center">
+			<p>First Name<span class="red-asterisk">*</span>: <input type="text" name="first_name" required></p>
+			<p>Last Name<span class="red-asterisk">*</span>: <input type="text" name="last_name" required></p>
+			<p>Street Name and Number<span class="red-asterisk">*</span>: <input type="text" name="street_name_and_number" required></p>
+			<p>City<span class="red-asterisk">*</span>: <input type="text" name="city" required></p>
+			<p>Country<span class="red-asterisk">*</span>: <input type="text" name="country" required></p>
+			<p>Zip Code (5 digits)<span class="red-asterisk">*</span>: <input type="tel" name="zip_code" pattern="\d{5}" required></p>
+			<p><input type="submit" value="Submit"></p>
+		</form>
+	
+	</div>
+
+</body>
+
+
+</html>

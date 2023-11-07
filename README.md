@@ -2,7 +2,7 @@
 
 ### Description
 
-This project aimed at implementing a website to do grocery shopping online using our own designed database. The project required some SQL queries, and some Python programming to code a Flask app. 
+This project aimed at implementing a website to do grocery shopping online using our own designed database. The project required some SQL queries, and some Python/HTML programming to code a Flask app. 
 
 ### Team Members
 
